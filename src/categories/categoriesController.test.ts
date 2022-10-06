@@ -1,15 +1,15 @@
 import { body } from "express-validator";
-import { validateBody } from "../validators";
 import categoriesController, { postCategory } from "./categoriesController";
 import { createCategory } from "./categoriesService";
 import { getMockReq, getMockRes } from "@jest-mock/express";
+import { validateBody } from "../validators/validatorBody";
 
 jest.mock("express", () => ({
   Router: () => ({
     post: jest.fn(),
   }),
 }));
-jest.mock("../validators");
+jest.mock("../validators/validatorBody");
 jest.mock("./categoriesService");
 
 describe("categories controller", () => {
